@@ -31,11 +31,24 @@ class MenuScene extends BaseScene {
         })
 
         textGO.on('pointerup', () => {
-            menuItem.scene && this.scene.start(menuItem.scene);
+            // menuItem.scene && this.scene.start(menuItem.scene);
 
-            if (menuItem.text === 'Exit') {
+            if (menuItem.text === 'Play') {
+                this.scene.start('PlayScene');
+                // this.music.play();
+            }
+
+            else if (menuItem.text === 'Score') {
+                this.scene.start('ScoreScene');
+            }
+
+            else {
                 this.game.destroy(true);
             }
+
+            // if (menuItem.text === 'Exit') {
+            //     this.game.destroy(true);
+            // }
         })
 
 

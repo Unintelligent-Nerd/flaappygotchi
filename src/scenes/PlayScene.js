@@ -45,6 +45,8 @@ class PlayScene extends BaseScene {
     this.handleInputs();
     this.listenToEvents();
 
+    this.music.play();
+
     this.anims.create({
       key: 'fly',
       frames: this.anims.generateFrameNumbers('bird', { start: 8, end: 15}),
@@ -75,7 +77,8 @@ class PlayScene extends BaseScene {
         callback: this.countDown,
         callbackScope: this,
         loop: true
-      })
+      }),
+      this.music.play();
     })
   }
 
@@ -144,6 +147,7 @@ class PlayScene extends BaseScene {
         this.isPaused = true;
         this.physics.pause();
         this.scene.pause();
+        this.music.stop();
         this.scene.launch('PauseScene');
       })
   }
@@ -220,6 +224,7 @@ class PlayScene extends BaseScene {
   gameOver() {
     this.physics.pause();
     this.bird.setTint(0xEE4824);
+    this.music.stop();
     
     this.saveBestScore();
 

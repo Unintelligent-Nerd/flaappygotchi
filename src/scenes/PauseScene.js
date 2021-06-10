@@ -31,9 +31,10 @@ class PauseScene extends BaseScene {
 
         textGO.on('pointerup', () => {
             if (menuItem.scene && menuItem.text === 'Continue') {
-                // Shutting down the PauseScene and resuming PLayScene
+                // Shutting down the PauseScene and resuming PlayScene
                 this.scene.stop();
                 this.scene.resume(menuItem.scene);
+                // this.music.play();
             } else {
                 // Shutting PlayScene, PauseScene and running Menu
                 this.scene.stop('PlayScene');
