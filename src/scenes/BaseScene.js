@@ -15,6 +15,7 @@ class BaseScene extends Phaser.Scene {
         this.add.image(0, 0, 'space').setOrigin(0);
 
         this.music = this.sound.add('music');
+        this.zap = this.sound.add('zap');
 
         if (this.config.canGoBack) {
             const backButton = this.add.image(this.config.width - 10, this.config.height - 10, 'back')

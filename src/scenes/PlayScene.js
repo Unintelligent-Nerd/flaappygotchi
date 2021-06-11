@@ -126,7 +126,12 @@ class PlayScene extends BaseScene {
   }
 
   createColliders() {
-    this.physics.add.collider(this.bird, this.pipes, this.gameOver, null, this);
+    // this.physics.add.collider(this.bird, this.pipes, this.gameOver, null, this);
+    this.physics.add.collider(this.bird, this.pipes, () => {
+      this.zap.play(),
+      this.gameOver()
+    }
+    , null, this);
   }
 
   createScore() {

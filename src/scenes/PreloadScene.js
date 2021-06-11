@@ -17,6 +17,7 @@ class PreloadScene extends Phaser.Scene {
         this.load.image('back', 'assets/back.png');
 
         this.load.audio('music', 'assets/audio/Aavegotchi - 6. Blockchain Boléro.mp3');
+        this.load.audio('zap', 'assets/audio/zapsplat_sound_design_electricity_zap_spark_28906.mp3');
     }
 
     create() {
