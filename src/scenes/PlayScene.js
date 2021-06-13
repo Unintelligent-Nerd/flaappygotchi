@@ -49,11 +49,11 @@ class PlayScene extends BaseScene {
 
     this.anims.create({
       key: 'fly',
-      frames: this.anims.generateFrameNumbers('bird', { start: 8, end: 15}),
+      frames: this.anims.generateFrameNumbers('bird', { start: 0, end: 1}),
       // 24 fps default, it will play animations consisting of 24 frames in 1 second
       // in case of framerate 2 and sprite of 8 frames animations will play in 
       // 4 sec; 8 / 2 = 4
-      frameRate: 8,
+      frameRate: 2,
       // repeat infinitely
       repeat: -1
     })
@@ -100,7 +100,7 @@ class PlayScene extends BaseScene {
   createBird() {
     this.bird = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'bird')
       .setFlipX(true)
-      .setScale(3)
+      .setScale(0.1)
       .setOrigin(0);
 
     this.bird.setBodySize(this.bird.width, this.bird.height - 8);

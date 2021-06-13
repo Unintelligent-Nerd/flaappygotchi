@@ -8,10 +8,12 @@ class PreloadScene extends Phaser.Scene {
 
     preload() {
         this.load.image('space', 'assets/space.png');
-        // this.load.image('aavegotchi', 'assets/aavegotchi.png');
-        this.load.spritesheet('bird', 'assets/birdSprite.png', {
-            frameWidth: 16, frameHeight: 16
-        });
+        // this.load.spritesheet('bird', 'assets/birdSprite.png', {
+        //     frameWidth: 16, frameHeight: 16
+        // });
+        this.load.spritesheet('bird', 'assets/gotchi.png', {
+            frameWidth: 633, frameHeight: 621
+        })
         this.load.image('pipe', 'assets/pipe.png');
         this.load.image('pause', 'assets/pause.png');
         this.load.image('back', 'assets/back.png');
