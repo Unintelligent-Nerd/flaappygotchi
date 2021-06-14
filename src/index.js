@@ -7,14 +7,14 @@ import PauseScene from './scenes/PauseScene';
 
 const WIDTH = 400;
 const HEIGHT = 600;
-const BIRD_POSITION = {
+const GOTCHI_POSITION = {
   x: WIDTH / 10, y: HEIGHT /2
 };
 
 const SHARED_CONFIG = {
   width: WIDTH,
   height: HEIGHT,
-  startPosition: BIRD_POSITION
+  startPosition: GOTCHI_POSITION
 }
 
 const Scenes = [PreloadScene, MenuScene, ScoreScene, PlayScene, PauseScene];

@@ -7,7 +7,7 @@ class PlayScene extends BaseScene {
   constructor(config) {
     super('PlayScene', config);
 
-    this.bird = null;
+    this.gotchi = null;
     this.pipes = null;
     this.isPaused = false;
 
@@ -37,7 +37,7 @@ class PlayScene extends BaseScene {
   create() {
     this.currentDifficulty = 'easy';
     super.create();
-    this.createBird();
+    this.createGotchi();
     this.createPipes();
     this.createColliders();
     this.createScore();
@@ -49,7 +49,7 @@ class PlayScene extends BaseScene {
 
     this.anims.create({
       key: 'fly',
-      frames: this.anims.generateFrameNumbers('bird', { start: 0, end: 1}),
+      frames: this.anims.generateFrameNumbers('gotchi', { start: 0, end: 1}),
       // 24 fps default, it will play animations consisting of 24 frames in 1 second
       // in case of framerate 2 and sprite of 8 frames animations will play in 
       // 4 sec; 8 / 2 = 4
@@ -58,7 +58,7 @@ class PlayScene extends BaseScene {
       repeat: -1
     })
 
-    this.bird.play('fly');
+    this.gotchi.play('fly');
   }
 
   update() {
@@ -97,15 +97,14 @@ class PlayScene extends BaseScene {
     this.add.image(0, 0, 'space').setOrigin(0, 0);
   }
 
-  createBird() {
-    this.bird = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'bird')
-      .setFlipX(true)
+  createGotchi() {
+    this.gotchi = this.physics.add.sprite(this.config.startPosition.x, this.config.startPosition.y, 'gotchi')
       .setScale(0.1)
       .setOrigin(0);
 
-    this.bird.setBodySize(this.bird.width - 100, this.bird.height - 100);
-    this.bird.body.gravity.y = 600;
-    this.bird.setCollideWorldBounds(true);
+    this.gotchi.setBodySize(this.gotchi.width - 100, this.gotchi.height - 100);
+    this.gotchi.body.gravity.y = 600;
+    this.gotchi.setCollideWorldBounds(true);
   }
 
   createPipes() {
@@ -126,8 +125,7 @@ class PlayScene extends BaseScene {
   }
 
   createColliders() {
-    // this.physics.add.collider(this.bird, this.pipes, this.gameOver, null, this);
-    this.physics.add.collider(this.bird, this.pipes, () => {
+    this.physics.add.collider(this.gotchi, this.pipes, () => {
       this.zap.play(),
       this.gameOver()
     }
@@ -163,7 +161,7 @@ class PlayScene extends BaseScene {
   }
 
   checkGameStatus() {
-    if (this.bird.getBounds().bottom >= this.config.height || this.bird.y <= 0) {
+    if (this.gotchi.getBounds().bottom >= this.config.height || this.gotchi.y <= 0) {
         this.gameOver();
       }
   }
@@ -228,7 +226,7 @@ class PlayScene extends BaseScene {
     
   gameOver() {
     this.physics.pause();
-    this.bird.setTint(0xEE4824);
+    this.gotchi.setTint(0xEE4824);
     this.music.stop();
     
     this.saveBestScore();
@@ -244,7 +242,7 @@ class PlayScene extends BaseScene {
     
   flap() {
     if (this.isPaused) { return; }
-    this.bird.body.velocity.y = -this.flapVelocity;
+    this.gotchi.body.velocity.y = -this.flapVelocity;
   }
 
   increaseScore() {
